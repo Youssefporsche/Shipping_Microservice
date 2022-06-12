@@ -40,6 +40,10 @@ app.get('/api/RabbitMartShipping/:id', async (req,res) => {
     const db = await mongoClient();
     return res.json(await db.collection('RabbitMartShipping').findOne({_id:req.params.id}) );
   });
+  app.get('/api/RabbitMartShipping/', async (req,res) => {
+    const db = await mongoClient();
+    return res.json(await db.collection('RabbitMartShipping').find().toArray() );
+  });
 
 /*app.post('/api/RabbitMartShipping', async (req,res) => {
     const db = await mongoClient();
